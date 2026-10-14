@@ -1,0 +1,134 @@
+# Reference expectations for the Apex Dynamics "Project Titan Watch" case study.
+#
+# Every expectation is grounded in docs/pre-prototype/01-11. Patterns are
+# case-insensitive regexes. A theme or requirement matches when ALL patterns in
+# `all_of` hit the same table row, bullet, or paragraph, so keep each pattern
+# broad enough for different team phrasings. Tune after the first workshop run
+# by checking false negatives in the report.
+
+id: apex-titan-watch
+title: Project Titan Watch (Apex Dynamics Response Systems)
+reviewed_by: null        # fill in after a coach reviews this file
+review_date: null
+
+# Extra citation formats this case uses: D01-D11 shorthand and doc file names.
+citation_patterns:
+  - '\bD(0[1-9]|1[01])\b'
+  - '\b(0[1-9]|1[01])-(call|email|interview)'
+
+dt:
+  scope: ["method-03-*", "method-02-*"]
+  themes:
+    - id: four-currents
+      label: Four meanings of "current" (observed / received / interpreted / acknowledged)
+      all_of:
+        - '\b(current|fresh(ness)?|timestamps?|stale|latency|delay(ed)?|behind|updated now)\b'
+        - 'observ|receiv|receipt|arriv'
+        - 'acknowledg|interpret|confirm|agreed'
+    - id: silence-not-all-clear
+      label: Silence is not "all clear"
+      all_of:
+        - '\b(silen(ce|t)|no data|absen(ce|t)|missing data|data gaps?|empty field|communications? gap|coverage gap)\b'
+        - 'all[- ]clear|reassur|unknown|ambigu|no data is not|not .{0,20}(safe|no people)'
+    - id: assigned-not-deployable
+      label: '"Assigned"/"available" is not "deployable"'
+      all_of:
+        - 'assign|availab|commit'
+        - 'deploy|acknowledg|accept|readiness|ready|reachab|route|on scene'
+    - id: threat-is-summary
+      label: Threat level is a summary, not authority
+      all_of:
+        - 'threat (level|condition|posture)|severity|condition (four|4)'
+        - 'summary|not authority|evidence|trace|provisional|interpretation|challenge|disagree'
+    - id: field-corrections
+      label: Field corrections flow back up
+      all_of:
+        - '\bfield\b|responder|unit (leader|report)|\bcrew'
+        - 'correct|contradict|report|flow|feedback|challenge'
+    - id: low-signal-communities
+      label: Low-signal communities disappear (volume is not need)
+      all_of:
+        - 'communit|neighbo(u)?rhood|population|district|island|fishing'
+        - 'signal|volume|coverage|silence|loud|quiet|weak|invisib|disappear|no data'
+    - id: wallboard-vs-desk
+      label: Wallboard orientation vs. desk inspection
+      all_of:
+        - 'wall ?board|across the room|room distance|shared (display|orientation)|from a distance|large display'
+        - 'desk|workstation|individual|inspect|detail'
+    - id: polish-vs-learning
+      label: Demo polish vs. learning validity
+      all_of:
+        - 'polish|demo(nstration)?|steering|funding|fundable|convinc'
+        - 'learn|research|valid|honest|fidelity|workflow|hypothesis'
+    - id: what-changed-who-knows
+      label: What changed and who knows it (handoff continuity)
+      weight: 0.5
+      all_of:
+        - 'chang|correction'
+        - 'handoff|hand-off|shift|who knows|heard|acknowledg'
+    - id: failure-visible
+      label: Failure of the shared picture must be visible
+      weight: 0.5
+      all_of:
+        - 'fail|frozen|degrad|outage|stopped updating'
+        - 'visible|composed|look|tell|detect|mistaken'
+  stakeholders:
+    file: stakeholder-map
+    names: [Frans, Sabien, Amalia, John, Ana, Emilia, Bontle]
+  not_themes:
+    - id: clipzilla
+      label: Clipzilla mascot is a sponsor preference, not a user theme
+      pattern: 'clipzilla|mascot'
+
+requirements: &requirements
+  must_cover:
+    - id: four-currents
+      label: Observation, receipt, interpretation, and acknowledgment are distinguishable
+      all_of: ['observ', 'receiv|receipt|arriv', 'acknowledg|interpret|confirm']
+    - id: silence-unknown
+      label: Silence is shown as unknown, never as all clear
+      all_of: ['silen|no data|absen|stops? reporting|missing|not report', 'unknown|all[- ]clear|gap|silent']
+    - id: threat-traceable
+      label: Threat summary traces to evidence and confirmer
+      all_of: ['threat (level|condition|posture)|severity|summary', 'evidence|trace|confirm']
+    - id: disagreement-visible
+      label: Source disagreement stays visible
+      all_of: ['disagree|conflict|contradict|compet']
+    - id: commitment-states
+      label: Unit commitment states are distinct (assigned ≠ acknowledged ≠ moving)
+      all_of: ['assign|commit|\bunits?\b', 'acknowledg|accept|received|moving|on scene|readiness']
+    - id: field-corrections
+      label: Field corrections reach the shared picture with attribution
+      all_of: ['\bfield\b', 'correct|contradict|evidence|report']
+    - id: change-since-handoff
+      label: Changes since handoff are reviewable
+      all_of: ['chang', 'handoff|hand-off|shift|since']
+    - id: degraded-visible
+      label: Stale or failed information is detectable
+      all_of: ['stale|degrad|stopped updating|fail|frozen']
+  expected_wont:
+    - id: automated-dispatch
+      label: Automated dispatch excluded
+      pattern: 'automat\w*[^|\n]{0,60}dispatch|dispatch[^|\n]{0,40}automat|command(ing)? units directly'
+    - id: clipzilla
+      label: Clipzilla mascot excluded
+      pattern: 'clipzilla|mascot'
+    - id: live-integrations
+      label: Live integrations excluded for the first increment
+      pattern: 'live (agency )?(integration|connection|feed)s?|agency (system )?integration'
+    - id: single-confidence
+      label: Single combined confidence score excluded
+      pattern: 'confidence (score|percentage)|single (combined )?(confidence|score)'
+  forbidden_must:
+    - id: automated-dispatch
+      label: Automated dispatch is not a Must
+      pattern: 'automat\w*.{0,40}(dispatch|deploy|assign)'
+    - id: clipzilla
+      label: Clipzilla is not a Must
+      pattern: 'clipzilla|mascot'
+    - id: single-confidence
+      label: A single confidence percentage is not a Must
+      pattern: 'single (combined )?confidence|confidence percentage'
+
+brd: *requirements
+prd: *requirements

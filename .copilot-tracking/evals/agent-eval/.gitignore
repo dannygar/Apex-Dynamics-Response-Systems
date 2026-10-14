@@ -1,0 +1,7 @@
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+__pycache__/
+# Machine-specific judge settings (real Azure endpoint and deployment).
+judge.local.yaml

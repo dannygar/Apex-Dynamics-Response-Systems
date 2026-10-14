@@ -1,0 +1,991 @@
+{
+  "label": "dry-run",
+  "created_at": "2026-10-13 21:53 UTC",
+  "artifacts": [
+    {
+      "kind": "dt",
+      "source": "..\\..\\dt\\apex-titan-watch",
+      "checks": [
+        {
+          "id": "dt.artifacts",
+          "layer": "structure",
+          "title": "Method artifacts present",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "10/10 expected artifacts for methods [1, 2, 3]",
+          "evidence": [],
+          "guidance": "Ask the DT Coach to write the missing method outputs before moving on.",
+          "data": {
+            "methods": [
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "id": "dt.state_file",
+          "layer": "structure",
+          "title": "Coaching state recorded",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 0.5,
+          "detail": "coaching-state.md present",
+          "evidence": [],
+          "guidance": "Start sessions with /dt-start-project so progress can be resumed.",
+          "data": {}
+        },
+        {
+          "id": "dt.theme_count",
+          "layer": "structure",
+          "title": "Synthesis produced a usable set of themes",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "11 themes (expected 5-15)",
+          "evidence": [],
+          "guidance": "Cluster findings into 5-15 themes; split catch-all clusters and merge near-duplicates.",
+          "data": {
+            "theme_count": 11
+          }
+        },
+        {
+          "id": "dt.evidence",
+          "layer": "structure",
+          "title": "Claims cite research evidence",
+          "score": 0.9313725490196079,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "95/102 findings and themes cite a source or quote",
+          "evidence": [
+            "method-02-research/findings-summary.md: * Researcher reflection: support for a shared picture is conditional on disagreement surv…",
+            "method-02-research/findings-summary.md: | No disabled users or assistive-technology users; Emilia is one expert voice | Wallboard…",
+            "method-02-research/findings-summary.md: | No field-tested data; no one has used any artifact | Every need is stated, not demonstr…",
+            "method-02-research/findings-summary.md: | Steering group / agency executives never interviewed | Funding criteria known only via …",
+            "method-02-research/findings-summary.md: | Other jurisdictions / mutual-aid agencies absent | Cross-border approval constraints un…",
+            "method-02-research/findings-summary.md: | No quantitative baselines | Business goals cannot be measured yet | Blocks SMART goals …"
+          ],
+          "guidance": "Anchor each theme and insight in a quote or a named research source.",
+          "data": {}
+        },
+        {
+          "id": "dt.hmw_count",
+          "layer": "structure",
+          "title": "How Might We questions generated",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "11 HMW questions (minimum 5)",
+          "evidence": [],
+          "guidance": "Turn each key insight into at least one open 'How might we…' question.",
+          "data": {
+            "hmw_count": 11
+          }
+        },
+        {
+          "id": "dt.hmw_neutral",
+          "layer": "structure",
+          "title": "HMWs are solution-neutral",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "11/11 HMWs avoid naming a solution",
+          "evidence": [],
+          "guidance": "Rewrite HMWs that name a feature or UI element; frame the need, not the fix.",
+          "data": {}
+        },
+        {
+          "id": "dt.research_honesty",
+          "layer": "structure",
+          "title": "Gaps, tensions, and assumptions recorded",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 0.5,
+          "detail": "8 distinct uncertainty markers (assumption, conflicting, gap, not validated, single primary voice, single source)",
+          "evidence": [],
+          "guidance": "Record unvalidated assumptions, missing voices, and unresolved tensions explicitly.",
+          "data": {}
+        },
+        {
+          "id": "ref.dt.themes",
+          "layer": "reference",
+          "title": "Expected insights surfaced",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 2.0,
+          "detail": "10/10 fully matched",
+          "evidence": [
+            "✔ Four meanings of \"current\" (observed / received / interpreted / acknowledged) — method-03-synthesis/affinity-clusters.md: | T1 | **Four meanings of \"current\"** — latest message received ≠ latest observ…",
+            "✔ Silence is not \"all clear\" — method-03-synthesis/affinity-clusters.md: | T2 | **Silence ≠ all clear** — absence of data is ambiguous and may mark the …",
+            "✔ \"Assigned\"/\"available\" is not \"deployable\" — method-03-synthesis/affinity-clusters.md: | T3 | **\"Assigned\" ≠ deployable** — one calm word hides five commitment states…",
+            "✔ Threat level is a summary, not authority — method-03-synthesis/affinity-clusters.md: | T4 | **Threat level is a summary, not authority** (incl. identity is an inter…",
+            "✔ Field corrections flow back up — method-03-synthesis/affinity-clusters.md: | T5 | **Field corrections must flow back up** — the field is both best and wor…",
+            "✔ Low-signal communities disappear (volume is not need) — method-03-synthesis/affinity-clusters.md: | T7 | **Low-signal communities disappear** — volume is mistaken for need | Res…",
+            "✔ Wallboard orientation vs. desk inspection — method-03-synthesis/affinity-clusters.md: | T8 | **Wallboard vs. desk** — shared orientation and individual inspection ar…",
+            "✔ Demo polish vs. learning validity — method-03-synthesis/affinity-clusters.md: | T9 | **Demo polish vs. learning validity** — a fundable artifact and a valid …",
+            "✔ What changed and who knows it (handoff continuity) — method-03-synthesis/affinity-clusters.md: | T6 | **What changed and who knows it** — change and acknowledgment must survi…",
+            "✔ Failure of the shared picture must be visible — method-03-synthesis/affinity-clusters.md: | T11 | **Failure must be visible** — degraded states can look composed | \"A fr…"
+          ],
+          "guidance": "Revisit the research for the missing insight; check whether synthesis merged it away.",
+          "data": {
+            "items": [
+              {
+                "id": "four-currents",
+                "label": "Four meanings of \"current\" (observed / received / interpreted / acknowledged)",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T1 | **Four meanings of \"current\"** — latest message received ≠ latest observ…"
+              },
+              {
+                "id": "silence-not-all-clear",
+                "label": "Silence is not \"all clear\"",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T2 | **Silence ≠ all clear** — absence of data is ambiguous and may mark the …"
+              },
+              {
+                "id": "assigned-not-deployable",
+                "label": "\"Assigned\"/\"available\" is not \"deployable\"",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T3 | **\"Assigned\" ≠ deployable** — one calm word hides five commitment states…"
+              },
+              {
+                "id": "threat-is-summary",
+                "label": "Threat level is a summary, not authority",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T4 | **Threat level is a summary, not authority** (incl. identity is an inter…"
+              },
+              {
+                "id": "field-corrections",
+                "label": "Field corrections flow back up",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T5 | **Field corrections must flow back up** — the field is both best and wor…"
+              },
+              {
+                "id": "low-signal-communities",
+                "label": "Low-signal communities disappear (volume is not need)",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T7 | **Low-signal communities disappear** — volume is mistaken for need | Res…"
+              },
+              {
+                "id": "wallboard-vs-desk",
+                "label": "Wallboard orientation vs. desk inspection",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T8 | **Wallboard vs. desk** — shared orientation and individual inspection ar…"
+              },
+              {
+                "id": "polish-vs-learning",
+                "label": "Demo polish vs. learning validity",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T9 | **Demo polish vs. learning validity** — a fundable artifact and a valid …"
+              },
+              {
+                "id": "what-changed-who-knows",
+                "label": "What changed and who knows it (handoff continuity)",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T6 | **What changed and who knows it** — change and acknowledgment must survi…"
+              },
+              {
+                "id": "failure-visible",
+                "label": "Failure of the shared picture must be visible",
+                "score": 1.0,
+                "evidence": "method-03-synthesis/affinity-clusters.md: | T11 | **Failure must be visible** — degraded states can look composed | \"A fr…"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ref.dt.stakeholders",
+          "layer": "reference",
+          "title": "All research participants mapped",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "7/7 fully matched",
+          "evidence": [
+            "✔ Frans",
+            "✔ Sabien",
+            "✔ Amalia",
+            "✔ John",
+            "✔ Ana",
+            "✔ Emilia",
+            "✔ Bontle"
+          ],
+          "guidance": "Add every interviewed stakeholder to the stakeholder map, including low-power voices.",
+          "data": {
+            "items": [
+              {
+                "id": "Frans",
+                "label": "Frans",
+                "score": 1.0
+              },
+              {
+                "id": "Sabien",
+                "label": "Sabien",
+                "score": 1.0
+              },
+              {
+                "id": "Amalia",
+                "label": "Amalia",
+                "score": 1.0
+              },
+              {
+                "id": "John",
+                "label": "John",
+                "score": 1.0
+              },
+              {
+                "id": "Ana",
+                "label": "Ana",
+                "score": 1.0
+              },
+              {
+                "id": "Emilia",
+                "label": "Emilia",
+                "score": 1.0
+              },
+              {
+                "id": "Bontle",
+                "label": "Bontle",
+                "score": 1.0
+              }
+            ]
+          }
+        },
+        {
+          "id": "ref.dt.not_themes",
+          "layer": "reference",
+          "title": "No unsupported themes",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "1/1 fully matched",
+          "evidence": [
+            "✔ Clipzilla mascot is a sponsor preference, not a user theme"
+          ],
+          "guidance": "Themes need user evidence; move sponsor preferences to scope decisions.",
+          "data": {
+            "items": [
+              {
+                "id": "clipzilla",
+                "label": "Clipzilla mascot is a sponsor preference, not a user theme",
+                "score": 1.0,
+                "evidence": ""
+              }
+            ]
+          }
+        },
+        {
+          "id": "judge.dt.problem_reframing",
+          "layer": "judge",
+          "title": "Problem reframed beyond the original request",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "5/5 — The definition replaces visual data consolidation with a solution-neutral need for shared understanding across roles. Research explains failures of meaning, acknowledgment, handoff, and coverage, and the artifact explicitly distinguishes these needs from the original request.",
+          "evidence": [
+            "✔ The data is already together enough to drown in; what is missing is **meaning that survives speed**",
+            "✔ Today that understanding is rebuilt by hand, held in individual heads, lost at handoff, and biased toward whoever generates the most signal.",
+            "✔ the discovered problem is about *meaning, timing, acknowledgment, and coverage*"
+          ],
+          "guidance": "Aim for: States a solution-neutral need grounded in research, and explains how it differs from the original request.",
+          "data": {
+            "raw_score": 5,
+            "samples": [
+              5,
+              5,
+              5
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.dt.insight_depth",
+          "layer": "judge",
+          "title": "Insight depth",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "5/5 — Insights consistently explain mechanisms behind observations and derive implications for decisions. They connect ambiguous terminology, disrupted evidence, compressed commitment states, and persuasive demonstrations to operational consequences rather than merely summarizing interview topics.",
+          "evidence": [
+            "✔ Why: interference and damaged infrastructure remove evidence exactly where risk and isolation are highest (D05, D07).",
+            "✔ Implication: the gap between intent, acknowledgment, and readiness has to stay visible to whoever relies on it.",
+            "✔ Why: a smooth replay \"looks like a live operational system\" (D10); viewers learn from the demo, not the caveats (D11)."
+          ],
+          "guidance": "Aim for: Insights consistently connect observation, underlying cause, and consequence for decisions.",
+          "data": {
+            "raw_score": 5,
+            "samples": [
+              5,
+              5,
+              5
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.dt.evidence_grounding",
+          "layer": "judge",
+          "title": "Evidence grounding",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "5/5 — Every theme includes specific documentary evidence and named sources, with insights traceable through themes to findings. Single-primary-voice themes, inferred constraints, recalled behavior, and unrepresentative replay data are explicitly qualified. Source documents are referenced rather than independently verifiable here, but no fabrication is established.",
+          "evidence": [
+            "✔ Ana (primary), Kadijah (relay), Amalia (mechanism)",
+            "✔ **Medium — single primary voice**",
+            "✔ No field-tested data; no one has used any artifact"
+          ],
+          "guidance": "Aim for: Every theme cites specific evidence, and single-source or weak themes are flagged as such.",
+          "data": {
+            "raw_score": 5,
+            "samples": [
+              5,
+              5,
+              5
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.dt.stakeholder_breadth",
+          "layer": "judge",
+          "title": "Breadth of perspectives",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "5/5 — The map and synthesis include operational, field, community, accessibility, funding, and internal perspectives. Low-power groups are identified by consequence, not just influence. Missing direct voices, intermediary limitations, absent jurisdictions, and unconfirmed hidden stakeholders are explicitly recorded and inform targeted research recommendations.",
+          "evidence": [
+            "✔ Low formal power, highest physical consequence",
+            "✔ communities with weak signal and people needing more time or different transport (high consequence, no direct voice)",
+            "✔ No residents, disabled users, agency executives, other jurisdictions, night-shift operators; community & accessibility = one interview each"
+          ],
+          "guidance": "Aim for: All groups are represented, and gaps in who was heard are explicitly recorded.",
+          "data": {
+            "raw_score": 5,
+            "samples": [
+              5,
+              5,
+              5
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.dt.hmw_quality",
+          "layer": "judge",
+          "title": "How Might We quality",
+          "score": 0.75,
+          "status": "warn",
+          "weight": 1.0,
+          "detail": "4/5 — All questions link to insights or themes and practical constraints, and most are open and appropriately scoped. However, retaining a threat shorthand preselects a representational approach, while matching field learning speed sets an ambitious target despite poor connectivity. These slightly narrow or overextend an otherwise strong ideation set.",
+          "evidence": [
+            "✔ ...make silence prompt a question instead of reassurance?",
+            "✔ ...keep a fast shared threat shorthand while making it obviously a summary that anyone with evidence can challenge?",
+            "✔ ...let what the field learns change the regional understanding as fast as the field learns it, without adding work while moving people?"
+          ],
+          "guidance": "Aim for: Every HMW is open, tied to an insight, and sized for ideation.",
+          "data": {
+            "raw_score": 4,
+            "samples": [
+              4,
+              5,
+              4
+            ],
+            "spread": 1,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.dt.tension_handling",
+          "layer": "judge",
+          "title": "Tensions and uncertainty preserved",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "5/5 — Conflicts are attributed and preserved across assumptions, synthesis, framing constraints, HMWs, and readiness decisions. Funding versus valid learning, scanning versus provenance, and command-center visibility versus community consequence remain unresolved. Research gaps and simulated alignment explicitly prevent an unconditional handoff.",
+          "evidence": [
+            "✔ Sponsor's single coherent escalation story vs. researchers' messy-variant learning (T9).",
+            "✔ ...create a first artifact that earns funding attention while still producing honest learning about how roles actually work?",
+            "✔ Community and accessibility perspectives each rest on one intermediary interview; no observation; no baselines; team alignment simulated, not confirmed."
+          ],
+          "guidance": "Aim for: Tensions and unknowns are named, attributed, and carried forward as open questions.",
+          "data": {
+            "raw_score": 5,
+            "samples": [
+              5,
+              5,
+              5
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.dt.evidence_verified",
+          "layer": "judge",
+          "title": "Judge quotes verified in artifact",
+          "score": 1.0,
+          "status": "skip",
+          "weight": 0.0,
+          "detail": "18/18 quotes found verbatim",
+          "evidence": [],
+          "guidance": "",
+          "data": {
+            "verified_ratio": 1.0,
+            "injection_detected": false,
+            "injection_evidence": "",
+            "unverified_injection_flags": 0
+          }
+        }
+      ],
+      "layer_scores": {
+        "structure": 0.988562091503268,
+        "reference": 1.0,
+        "judge": 0.9583333333333334
+      },
+      "score": 0.9829248366013071,
+      "status": "pass"
+    },
+    {
+      "kind": "brd",
+      "source": "..\\..\\brd-sessions\\apex-titan-watch-brd.md",
+      "checks": [
+        {
+          "id": "brd.frontmatter",
+          "layer": "structure",
+          "title": "Frontmatter metadata complete",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "6/6 required fields set",
+          "evidence": [],
+          "guidance": "Ask the builder to fill document metadata (ID, version, owners, goal IDs).",
+          "data": {}
+        },
+        {
+          "id": "brd.sections",
+          "layer": "structure",
+          "title": "Template sections present",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "13/13 canonical sections",
+          "evidence": [],
+          "guidance": "Resume the builder and ask it to complete the missing template sections.",
+          "data": {}
+        },
+        {
+          "id": "brd.placeholders",
+          "layer": "structure",
+          "title": "No leftover template placeholders",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "0 placeholder or guidance lines remain",
+          "evidence": [],
+          "guidance": "Replace {{placeholders}} and remove template *Guidance* lines.",
+          "data": {}
+        },
+        {
+          "id": "brd.id_hygiene",
+          "layer": "structure",
+          "title": "IDs unique, defined, and well-formed",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "0 ID issues across 62 referenced IDs",
+          "evidence": [],
+          "guidance": "Define every referenced ID once using the canonical PREFIX-### form.",
+          "data": {}
+        },
+        {
+          "id": "brd.fr_ac_coverage",
+          "layer": "structure",
+          "title": "FR → acceptance criteria coverage",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "88% of 17 FRs linked to a defined AC (threshold 80%)",
+          "evidence": [
+            "FR-016 has no AC",
+            "FR-017 has no AC"
+          ],
+          "guidance": "Link every FR to at least one defined AC-### item in the traceability matrix.",
+          "data": {
+            "coverage_pct": 88.2,
+            "threshold_pct": 80.0
+          }
+        },
+        {
+          "id": "brd.fr_goal_coverage",
+          "layer": "structure",
+          "title": "FR → BG alignment",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "100% of 17 FRs linked to a defined BG (threshold 100%)",
+          "evidence": [],
+          "guidance": "Link every FR to at least one defined BG-### item in the traceability matrix.",
+          "data": {
+            "coverage_pct": 100.0,
+            "threshold_pct": 100.0
+          }
+        },
+        {
+          "id": "brd.goal_measurability",
+          "layer": "structure",
+          "title": "Goals have baseline and target",
+          "score": 0.1428571428571429,
+          "status": "fail",
+          "weight": 1.0,
+          "detail": "1/7 goals have numeric baseline and target",
+          "evidence": [
+            "BG-001: baseline='TBD — anecdotal \"first ten minutes\" (D01', target='TBD — set after baseline (proposal for d'",
+            "BG-002: baseline='TBD (seeded replay without intervention)', target='TBD.'",
+            "BG-003: baseline='TBD (D04 example: an unacknowledged team', target='TBD.'",
+            "BG-004: baseline='TBD.', target='TBD.'",
+            "BG-005: baseline='TBD (D07: resources followed volume).', target='TBD.'",
+            "BG-007: baseline='0 sessions (D11).', target='TBD (proposal: ≥1 session per role plus '"
+          ],
+          "guidance": "Record a measured baseline and numeric target per goal, or an explicit plan to measure it. Do not invent numbers to pass this check.",
+          "data": {}
+        },
+        {
+          "id": "brd.nfr_categories",
+          "layer": "structure",
+          "title": "Non-functional categories addressed",
+          "score": 0.6875,
+          "status": "warn",
+          "weight": 1.0,
+          "detail": "5.5/8 categories carry an NFR",
+          "evidence": [
+            "Functional Suitability: scoped out with rationale",
+            "Security: no NFR",
+            "Portability: no NFR"
+          ],
+          "guidance": "Add at least one verifiable NFR-### per quality category, or justify why it does not apply.",
+          "data": {}
+        },
+        {
+          "id": "brd.requirement_sources",
+          "layer": "structure",
+          "title": "Requirements cite their evidence",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "17/17 FRs cite a source or rationale",
+          "evidence": [],
+          "guidance": "Trace each requirement to the interview, document, or decision it came from.",
+          "data": {}
+        },
+        {
+          "id": "brd.acceptance_form",
+          "layer": "structure",
+          "title": "Acceptance criteria are testable",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "15/15 AC items use Given/When/Then or EARS form",
+          "evidence": [],
+          "guidance": "Rewrite each AC as 'Given…, When…, Then…' or 'When…, the system shall…'.",
+          "data": {}
+        },
+        {
+          "id": "brd.moscow",
+          "layer": "structure",
+          "title": "MoSCoW prioritization",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "9/17 Must (53%); 0 unprioritized",
+          "evidence": [],
+          "guidance": "Give every FR a MoSCoW priority and keep Must-haves at or below about 60%.",
+          "data": {
+            "must_share": 0.529
+          }
+        },
+        {
+          "id": "brd.vague_terms",
+          "layer": "structure",
+          "title": "Unambiguous wording",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "40/40 items clean",
+          "evidence": [],
+          "guidance": "Replace vague words (fast, easy, robust, real-time…) with measurable conditions.",
+          "data": {}
+        },
+        {
+          "id": "brd.solution_leakage",
+          "layer": "structure",
+          "title": "Solution-agnostic requirements",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "17/17 items clean",
+          "evidence": [],
+          "guidance": "State business needs, not UI or technology (no screens, buttons, dashboards, APIs).",
+          "data": {}
+        },
+        {
+          "id": "ref.brd.must_cover",
+          "layer": "reference",
+          "title": "Critical needs captured as Must-haves",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 2.0,
+          "detail": "8/8 fully matched",
+          "evidence": [
+            "✔ Observation, receipt, interpretation, and acknowledgment are distinguishable — FR-002",
+            "✔ Silence is shown as unknown, never as all clear — FR-003",
+            "✔ Threat summary traces to evidence and confirmer — FR-005, FR-006",
+            "✔ Source disagreement stays visible — FR-006, FR-010",
+            "✔ Unit commitment states are distinct (assigned ≠ acknowledged ≠ moving) — FR-008",
+            "✔ Field corrections reach the shared picture with attribution — FR-010",
+            "✔ Changes since handoff are reviewable — FR-007",
+            "✔ Stale or failed information is detectable — FR-015"
+          ],
+          "guidance": "Each critical research need should appear as a Must requirement.",
+          "data": {
+            "items": [
+              {
+                "id": "four-currents",
+                "label": "Observation, receipt, interpretation, and acknowledgment are distinguishable",
+                "score": 1.0,
+                "evidence": "FR-002"
+              },
+              {
+                "id": "silence-unknown",
+                "label": "Silence is shown as unknown, never as all clear",
+                "score": 1.0,
+                "evidence": "FR-003"
+              },
+              {
+                "id": "threat-traceable",
+                "label": "Threat summary traces to evidence and confirmer",
+                "score": 1.0,
+                "evidence": "FR-005, FR-006"
+              },
+              {
+                "id": "disagreement-visible",
+                "label": "Source disagreement stays visible",
+                "score": 1.0,
+                "evidence": "FR-006, FR-010"
+              },
+              {
+                "id": "commitment-states",
+                "label": "Unit commitment states are distinct (assigned ≠ acknowledged ≠ moving)",
+                "score": 1.0,
+                "evidence": "FR-008"
+              },
+              {
+                "id": "field-corrections",
+                "label": "Field corrections reach the shared picture with attribution",
+                "score": 1.0,
+                "evidence": "FR-010"
+              },
+              {
+                "id": "change-since-handoff",
+                "label": "Changes since handoff are reviewable",
+                "score": 1.0,
+                "evidence": "FR-007"
+              },
+              {
+                "id": "degraded-visible",
+                "label": "Stale or failed information is detectable",
+                "score": 1.0,
+                "evidence": "FR-015"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ref.brd.expected_wont",
+          "layer": "reference",
+          "title": "Out-of-scope items explicitly excluded",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "4/4 fully matched",
+          "evidence": [
+            "✔ Automated dispatch excluded — | Automated dispatch or commanding units directly from shared informa…",
+            "✔ Clipzilla mascot excluded — | \"Clipzilla\" mascot | Sponsor preference, no user need, no BG (DD-00…",
+            "✔ Live integrations excluded for the first increment — | Live integrations with agency systems | Approved boundary for Incre…",
+            "✔ Single combined confidence score excluded — | Single combined confidence percentage | Mixes model behavior, sourc…"
+          ],
+          "guidance": "Record exclusions in a Won't-have list so they do not silently return.",
+          "data": {
+            "items": [
+              {
+                "id": "automated-dispatch",
+                "label": "Automated dispatch excluded",
+                "score": 1.0,
+                "evidence": "| Automated dispatch or commanding units directly from shared informa…"
+              },
+              {
+                "id": "clipzilla",
+                "label": "Clipzilla mascot excluded",
+                "score": 1.0,
+                "evidence": "| \"Clipzilla\" mascot | Sponsor preference, no user need, no BG (DD-00…"
+              },
+              {
+                "id": "live-integrations",
+                "label": "Live integrations excluded for the first increment",
+                "score": 1.0,
+                "evidence": "| Live integrations with agency systems | Approved boundary for Incre…"
+              },
+              {
+                "id": "single-confidence",
+                "label": "Single combined confidence score excluded",
+                "score": 1.0,
+                "evidence": "| Single combined confidence percentage | Mixes model behavior, sourc…"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ref.brd.forbidden_must",
+          "layer": "reference",
+          "title": "No rejected ideas promoted to Must",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "3/3 fully matched",
+          "evidence": [
+            "✔ Automated dispatch is not a Must",
+            "✔ Clipzilla is not a Must",
+            "✔ A single confidence percentage is not a Must"
+          ],
+          "guidance": "Ideas stakeholders rejected must not return as Must requirements.",
+          "data": {
+            "items": [
+              {
+                "id": "automated-dispatch",
+                "label": "Automated dispatch is not a Must",
+                "score": 1.0,
+                "evidence": ""
+              },
+              {
+                "id": "clipzilla",
+                "label": "Clipzilla is not a Must",
+                "score": 1.0,
+                "evidence": ""
+              },
+              {
+                "id": "single-confidence",
+                "label": "A single confidence percentage is not a Must",
+                "score": 1.0,
+                "evidence": ""
+              }
+            ]
+          }
+        },
+        {
+          "id": "judge.brd.solution_agnostic",
+          "layer": "judge",
+          "title": "Solution-agnostic business needs",
+          "score": 0.5,
+          "status": "warn",
+          "weight": 1.0,
+          "detail": "3/5 — Most functional requirements describe business capabilities, and prototype constraints are explicitly separated. However, acceptance criteria prescribe navigation steps, accessibility requirements prescribe presentation mechanisms, and retention requirements constrain data design.",
+          "evidence": [
+            "✔ Users can see which roles have acknowledged a decision-relevant correction or change.",
+            "✔ Then the user reaches the contributing evidence in two steps or fewer",
+            "✔ status remains understandable in grayscale and forced-colors modes through labels, ordering, and language."
+          ],
+          "guidance": "Aim for: Every requirement states a business capability or outcome only.",
+          "data": {
+            "raw_score": 3,
+            "samples": [
+              3,
+              3,
+              3
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.brd.goal_quality",
+          "layer": "judge",
+          "title": "Business goal quality",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "5/5 — Goals have specific KPIs, accountable owners, measurement sources, and deadlines. Missing baselines and targets are disclosed rather than invented, with an explicitly owned, dated resolution question. Replay measurement plans support the deferred goals without claiming operational effectiveness.",
+          "evidence": [
+            "✔ Baseline: TBD — anecdotal \"first ten minutes\" (D01 02:29); to be measured in a baseline replay session.",
+            "✔ Owner: Incident command representative (Frans Vasala).",
+            "✔ SMART goals cannot pass | Quality lead | 2030-03-29 | Open"
+          ],
+          "guidance": "Aim for: Goals are SMART, or missing values carry an explicit, owned plan to measure them.",
+          "data": {
+            "raw_score": 5,
+            "samples": [
+              5,
+              5,
+              5
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.brd.requirement_atomicity",
+          "layer": "judge",
+          "title": "Atomic, testable requirements",
+          "score": 0.5,
+          "status": "warn",
+          "weight": 1.0,
+          "detail": "3/5 — Most requirements have identifiable triggers and verifiable outcomes, supported by acceptance criteria. Several bundle distinct behaviors, while terms such as decision-relevant and usable lack operational definitions. Some acceptance thresholds remain TBD, and two functional requirements lack acceptance criteria.",
+          "evidence": [
+            "✔ Any summary threat condition is labeled as a summary, can be traced to its contributing evidence, and shows who confirmed it.",
+            "✔ Users can see which populations need more time or different transport and whether evacuation messages reached them in usable form.",
+            "✔ Then they can tell it is stale within a target time (TBD, OQ-005)."
+          ],
+          "guidance": "Aim for: Requirements are atomic, unambiguous, and directly verifiable.",
+          "data": {
+            "raw_score": 3,
+            "samples": [
+              3,
+              3,
+              3
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.brd.evidence_traceability",
+          "layer": "judge",
+          "title": "Traceability to evidence",
+          "score": 1.0,
+          "status": "pass",
+          "weight": 1.0,
+          "detail": "5/5 — Functional and non-functional requirements consistently cite discovery sources, and every business rule records its rationale. Recorded decisions explain exclusions and constraint treatment. Simulated provenance is disclosed. Enforcement gaps do not negate the otherwise comprehensive evidence traceability.",
+          "evidence": [
+            "✔ Rationale: \"The system should not make the decision for me\" (D01 06:25; D03).",
+            "✔ **NFR-002**: All safety-critical tasks can be completed using only a keyboard. Source: D08, D11.",
+            "✔ Stakeholder answers are simulated from `docs/pre-prototype` D01–D11 and the DT synthesis at `.copilot-tracking/dt/apex-titan-watch/`."
+          ],
+          "guidance": "Aim for: All requirements trace to evidence or recorded decisions.",
+          "data": {
+            "raw_score": 5,
+            "samples": [
+              5,
+              5,
+              5
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.brd.scope_discipline",
+          "layer": "judge",
+          "title": "Scope discipline",
+          "score": 0.75,
+          "status": "warn",
+          "weight": 1.0,
+          "detail": "4/5 — The increment is time-boxed, priorities are differentiated, and exclusions include reasons and reconsideration points. Sponsor preferences are clearly separated from user needs. However, individual Must-versus-Should choices lack explicit comparative justification, and resource-coordination scope remains unresolved.",
+          "evidence": [
+            "✔ MoSCoW time-box: Increment 1 (through June 2030 steering review). Must = 9 of 17 (53%).",
+            "✔ Sponsor preference, no user need, no BG (DD-002)",
+            "✔ Does resource coordination belong in Increment 1?"
+          ],
+          "guidance": "Aim for: Priorities follow evidence; exclusions have reasons and reconsideration points.",
+          "data": {
+            "raw_score": 4,
+            "samples": [
+              4,
+              4,
+              4
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.brd.risk_honesty",
+          "layer": "judge",
+          "title": "Risks, assumptions, and open questions",
+          "score": 0.75,
+          "status": "warn",
+          "weight": 1.0,
+          "detail": "4/5 — Assumptions and risks are specific, acknowledge contested or weak evidence, and include actionable mitigations. Open questions have owners and mostly deadlines. However, the assumption and risk registers themselves lack accountable owners, limiting follow-through despite strong disclosure.",
+          "evidence": [
+            "✔ ASM-002 | Escalation reconstruction costs ~10 minutes | Partially supported (one anecdote) | BG-001 target mis-set | Baseline replay | D01 02:29",
+            "✔ R-001 | A polished, smooth artifact is read as a live, validated system | High | High",
+            "✔ What security classification applies to sensor and military data, even sanitized? | Security NFRs absent | Technical lead | 2030-03-15"
+          ],
+          "guidance": "Aim for: Specific, owned, and tied to evidence strength with mitigations.",
+          "data": {
+            "raw_score": 4,
+            "samples": [
+              4,
+              4,
+              4
+            ],
+            "spread": 0,
+            "grounded": true
+          }
+        },
+        {
+          "id": "judge.brd.evidence_verified",
+          "layer": "judge",
+          "title": "Judge quotes verified in artifact",
+          "score": 1.0,
+          "status": "skip",
+          "weight": 0.0,
+          "detail": "18/18 quotes found verbatim",
+          "evidence": [],
+          "guidance": "",
+          "data": {
+            "verified_ratio": 1.0,
+            "injection_detected": false,
+            "injection_evidence": "",
+            "unverified_injection_flags": 0
+          }
+        }
+      ],
+      "layer_scores": {
+        "structure": 0.9100274725274725,
+        "reference": 1.0,
+        "judge": 0.75
+      },
+      "score": 0.8890109890109891,
+      "status": "warn"
+    }
+  ],
+  "reference_id": "apex-titan-watch",
+  "judge": {
+    "provider": "azure-openai",
+    "deployment": "gpt-6.1-sol-judge",
+    "api_version": "2025-04-01-preview",
+    "samples": 3,
+    "temperature": null,
+    "auth": "entra-id",
+    "usage": {
+      "prompt_tokens": 65259,
+      "completion_tokens": 7288,
+      "calls": 6
+    }
+  },
+  "inputs": {
+    "dt": {
+      "path": "..\\..\\dt\\apex-titan-watch",
+      "sha": "ae14e50f713321a5"
+    },
+    "brd": {
+      "path": "..\\..\\brd-sessions\\apex-titan-watch-brd.md",
+      "sha": "24a8836d45025c69"
+    }
+  },
+  "score": 0.9359679128061481,
+  "status": "warn"
+}

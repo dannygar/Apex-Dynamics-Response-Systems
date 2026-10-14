@@ -1,0 +1,150 @@
+# Structural expectations derived from the HVE Core DT Coach, BRD Builder,
+# and PRD Builder templates (hve-core snapshot 2026-09-08). Edit to tune the
+# evaluator without touching code. Patterns are case-insensitive regexes.
+
+dt:
+  # Expected files per method folder. A method is evaluated when its folder
+  # exists or when it is requested with --dt-methods.
+  methods:
+    1:
+      folder: "method-01-*"
+      files: [stakeholder-map, scope-boundaries, assumptions-log]
+    2:
+      folder: "method-02-*"
+      files: [research-plan, findings-summary, constraint-catalog]
+    3:
+      folder: "method-03-*"
+      files: [affinity-clusters, insight-statements, problem-definition, how-might-we-questions]
+    4:
+      folder: "method-04-*"
+      files: [session-plan, divergent-ideas, theme-clusters]
+    5:
+      folder: "method-05-*"
+      files: []
+    6:
+      folder: "method-06-*"
+      files: [prototype-plan, prototype-variations, constraint-discoveries, test-observations]
+  state_file: coaching-state.md
+  # Files excluded from content analysis (large logs, not deliverables).
+  exclude: [session-transcript.md]
+  hmw_file: how-might-we-questions
+  themes_file: affinity-clusters
+  synthesis_folder: "method-03-*"
+  min_hmw: 5
+  theme_count_range: [5, 15]
+  # Files whose rows and bullets are claims that must cite research evidence.
+  evidence_files: [affinity-clusters, insight-statements, findings-summary]
+  # A chunk counts as evidence-backed when it matches any of these.
+  citation_patterns:
+    - '"[^"]{12,}"'
+    - '“[^”]{12,}”'
+    - '\(([A-Z]{1,4}\d{1,3}|[^)]*\d{1,2}:\d{2})[^)]*\)'
+    - '\[[^\]]+\]\([^)]+\)'
+    - '\b(interview|transcript|observation|survey|source)\b'
+
+requirements:
+  vague_terms:
+    - 'user[- ]friendly'
+    - '\beasy\b'
+    - '\bfast\b'
+    - '\bquick(ly)?\b'
+    - '\bintuitive\b'
+    - '\bseamless(ly)?\b'
+    - '\brobust\b'
+    - '\bappropriate(ly)?\b'
+    - '\badequate(ly)?\b'
+    - '\bas needed\b'
+    - '\betc\.?'
+    - '\befficient(ly)?\b'
+    - '\bflexible\b'
+    - '\bsufficient\b'
+    - '\breal[- ]time\b'
+    - '\band/or\b'
+    - '\bstate[- ]of[- ]the[- ]art\b'
+  # Implementation words that should not appear in solution-agnostic
+  # business requirements or How Might We questions.
+  solution_terms:
+    - '\bdashboard\b'
+    - '\bscreen\b'
+    - '\bbutton\b'
+    - '\bclick\b'
+    - '\bdrop-?down\b'
+    - '\bpop-?up\b'
+    - '\bwidget\b'
+    - '\bmobile app\b'
+    - '\bweb ?page\b'
+    - '\bchat ?bot\b'
+    - '\bapi\b'
+    - '\bdatabase\b'
+    - '\bmap view\b'
+    - '\bindicator\b'
+    - '\bnotification\b'
+  max_must_share: 0.6
+  acceptance_form:
+    - '\bgiven\b[\s\S]*\bwhen\b[\s\S]*\bthen\b'
+    - '\b(when|while|if|where)\b[\s\S]*\bshall\b'
+    - '\bthe system shall\b'
+
+brd:
+  goal_prefix: BG
+  goal_section: 'business goals?'
+  coverage_threshold_key: fr_to_ac_coverage_threshold_pct
+  goal_coverage_threshold_key: null
+  frontmatter: [brd_id, title, status, version, owners, business_goal_ids]
+  sections:
+    - Executive Summary
+    - Business Context
+    - Stakeholders
+    - Business Goals
+    - Business Rules
+    - Functional Requirements
+    - Non-Functional Requirements
+    - Constraints
+    - Acceptance Criteria
+    - Traceability Matrix
+    - Risks and Assumptions
+    - Open Questions
+    - Sign-Off
+  nfr_categories:
+    - Functional Suitability
+    - Performance Efficiency
+    - Compatibility
+    - Usability
+    - Reliability
+    - Security
+    - Maintainability
+    - Portability
+  solution_agnostic: true
+
+prd:
+  goal_prefix: GOAL
+  goal_section: 'product goals?'
+  coverage_threshold_key: fr_to_ac_coverage_threshold_pct
+  goal_coverage_threshold_key: fr_to_goal_coverage_threshold_pct
+  frontmatter: [prd_id, title, status, version, owners, product_goal_ids]
+  sections:
+    - Executive Summary
+    - Product Context
+    - Users and Personas
+    - Product Goals
+    - Functional Requirements
+    - Non-Functional Requirements
+    - Constraints
+    - Acceptance Criteria
+    - Traceability Matrix
+    - MVP and Release Framing
+    - Success Metrics
+    - Risks and Assumptions
+    - Sign-Off
+  nfr_categories:
+    - Performance and Capacity
+    - Reliability and Resilience
+    - Security
+    - Privacy
+    - Scalability and Elasticity
+    - Maintainability and Operability
+    - Observability
+    - Usability and Accessibility
+    - Compatibility and Interoperability
+    - Portability
+  solution_agnostic: false
