@@ -14,7 +14,7 @@ from agent_eval.cli import EXIT_ERROR, EXIT_FAILURE, EXIT_SUCCESS, main
 from agent_eval.report import render_comparison
 
 PROJECT = Path(__file__).resolve().parents[1]
-TRACKING = PROJECT.parents[1]
+TRACKING = PROJECT.parents[1] / ".copilot-tracking"
 DRY_RUN_DT = TRACKING / "dt" / "apex-titan-watch"
 DRY_RUN_BRD = TRACKING / "brd-sessions" / "apex-titan-watch-brd.md"
 APEX_REF = PROJECT / "references" / "apex-titan-watch.yaml"
@@ -97,6 +97,22 @@ def test_given_dt_folder_when_prompt_then_lists_files_without_transcript(dt_fold
     # Assert
     out = capsys.readouterr().out
     assert code == EXIT_SUCCESS and "#file:" in out and "session-transcript" not in out
+
+
+def test_given_path_inside_git_repo_when_workspace_relative_then_relative_to_repo_root(tmp_path):
+    # Arrange
+    from agent_eval.cli import workspace_relative
+
+    (tmp_path / ".git").mkdir()
+    target = tmp_path / ".copilot-tracking" / "brd-sessions" / "team-a-brd.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("x", encoding="utf-8")
+
+    # Act
+    result = workspace_relative(str(target))
+
+    # Assert
+    assert result == ".copilot-tracking/brd-sessions/team-a-brd.md"
 
 
 @pytest.mark.skipif(not (DRY_RUN_DT.is_dir() and DRY_RUN_BRD.is_file()), reason="dry-run artifacts not present")

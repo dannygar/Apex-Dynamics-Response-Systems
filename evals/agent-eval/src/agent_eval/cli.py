@@ -9,7 +9,8 @@ Usage:
     agent-eval prompt brd <path-to-brd.md> [--out selfcheck.md]
 
 Example:
-    uv run agent-eval run --label team-a --dt ../../dt/team-a --brd ../../brd-sessions/team-a-brd.md \\
+    uv run agent-eval run --label team-a --dt ../../.copilot-tracking/dt/team-a \\
+        --brd ../../.copilot-tracking/brd-sessions/team-a-brd.md \\
         --reference references/apex-titan-watch.yaml --judge
 """
 
@@ -224,6 +225,7 @@ def cmd_prompt(args: argparse.Namespace) -> int:
             paths += [p.as_posix() for p in sorted(path.rglob("*.md")) if p.name not in excluded]
         else:
             paths.append(path.as_posix())
+    paths = [workspace_relative(p) for p in paths]
     text = build_selfcheck_prompt(args.kind, config.rubrics(args.rubrics)[args.kind], paths)
     if args.out:
         args.out.write_text(text, encoding="utf-8")
@@ -231,6 +233,19 @@ def cmd_prompt(args: argparse.Namespace) -> int:
     else:
         print(text)
     return EXIT_SUCCESS
+
+
+def workspace_relative(path: str) -> str:
+    """Return ``path`` relative to the enclosing git repository root for ``#file:`` references.
+
+    Copilot Chat resolves ``#file:`` paths from the workspace root, so a path given relative to
+    this project folder would not resolve. Paths outside a repository are returned unchanged.
+    """
+    resolved = Path(path).resolve()
+    for parent in resolved.parents:
+        if (parent / ".git").exists():
+            return resolved.relative_to(parent).as_posix()
+    return Path(path).as_posix()
 
 
 def cmd_judge_check(args: argparse.Namespace) -> int:

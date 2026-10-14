@@ -2,7 +2,7 @@
 title: agent-eval - Evaluator for DT Coach, BRD Builder, and PRD Builder outputs
 description: Coach guide for scoring workshop teams' Design Thinking, BRD, and PRD artifacts with structural checks, case reference coverage, and an Azure OpenAI judge
 author: Workshop coach
-ms.date: 2026-10-13
+ms.date: 2026-10-14
 ms.topic: how-to
 keywords: [evaluation, design thinking, brd, prd, llm-as-judge, hve-core]
 ---
@@ -23,12 +23,12 @@ Scores support coaching conversations; they do not replace reading the artifacts
 
 ## Setup
 
-The project lives under `.copilot-tracking/evals/agent-eval/`. The repository's root
-`.gitignore` excludes `.copilot-tracking/`, so participants working from the upstream case-study
-repo never see it; in this fork the files are tracked explicitly.
+The project lives in `evals/agent-eval/` at the repository root and is tracked normally. The
+agents' working outputs stay in `.copilot-tracking/`, which the root `.gitignore` excludes; the
+evaluator reads them from there.
 
 ```powershell
-cd .copilot-tracking\evals\agent-eval
+cd evals\agent-eval
 uv sync                       # see the package index note below
 Copy-Item judge.yaml judge.local.yaml   # then set your endpoint in judge.local.yaml
 az login                      # judge uses Entra ID; no API keys are stored
@@ -65,7 +65,7 @@ mid tier. Re-run the [calibration](#calibration) after changing the judge model.
 
    ```powershell
    uv run agent-eval run --label team-a `
-     --dt ..\..\dt\team-a --brd ..\..\brd-sessions\team-a-brd.md `
+     --dt ..\..\.copilot-tracking\dt\team-a --brd ..\..\.copilot-tracking\brd-sessions\team-a-brd.md `
      --reference references\apex-titan-watch.yaml --judge --judge-samples 3
    ```
 
@@ -82,11 +82,11 @@ mid tier. Re-run the [calibration](#calibration) after changing the judge model.
 4. Give teams a self-check they can run in Copilot Chat without Azure access:
 
    ```powershell
-   uv run agent-eval prompt brd .copilot-tracking/brd-sessions/team-a-brd.md --out results\selfcheck-team-a.md
+   uv run agent-eval prompt brd ..\..\.copilot-tracking\brd-sessions\team-a-brd.md --out results\selfcheck-team-a.md
    ```
 
-   Paste the generated prompt into Copilot Chat from the repository root; it attaches the files
-   with `#file:` and applies the same rubric.
+   Paste the generated prompt into Copilot Chat; it attaches the files with `#file:` paths relative
+   to the repository root and applies the same rubric.
 
 Each run writes `results/<label>-<timestamp>.md` (readable report with "What to improve") and
 `.json` (full data for comparisons).
@@ -136,7 +136,7 @@ Baseline results from 2026-10-13 with `gpt-6.1-sol-judge`:
 ## Development
 
 ```powershell
-uv run pytest       # 64 tests, judge mocked; one test also scores the real dry-run artifacts
+uv run pytest       # 65 tests, judge mocked; one test also scores the real dry-run artifacts
 uv run ruff check src tests
 ```
 
