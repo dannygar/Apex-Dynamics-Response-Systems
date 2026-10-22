@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": { "value": "apex-eval" },
+    "location": { "value": "eastus2" },
+    "entraTenantId": { "value": "fe3446b1-8415-457f-9cbd-b4e883f656f3" },
+    "entraApiAudience": { "value": "11a135eb-738e-4dc2-b888-3050078a095c" },
+    "entraRequiredScope": { "value": "Evaluation.Access" },
+    "sqlAdminLogin": { "value": "dannyg@mcapsonline.com" },
+    "sqlAdminObjectId": { "value": "07121952-4f26-464d-ac9e-3b4542f99f73" },
+    "judgeAccountName": { "value": "dannyg-gyc-resource" },
+    "judgeResourceGroupName": { "value": "dannyg-ai-dev-rg" },
+    "judgeEndpoint": { "value": "https://dannyg-gyc-resource.cognitiveservices.azure.com/" },
+    "judgeDeployment": { "value": "gpt-6.1-sol-judge" },
+    "judgeApiVersion": { "value": "2025-04-01-preview" },
+    "judgeSamples": { "value": 1 },
+    "foundryAccountName": { "value": "danny-ai-svc" },
+    "foundryProjectName": { "value": "danny-ai-svc-project" },
+    "foundryResourceGroupName": { "value": "dannyg-ai-dev-rg" },
+    "foundryProjectPrincipalId": { "value": "f6a29d16-e436-4250-9167-6d79690b38a0" },
+    "foundryAgentName": { "value": "apex-agent-eval-judge" }
+  }
+}

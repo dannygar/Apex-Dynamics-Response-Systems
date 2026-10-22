@@ -1,0 +1,8 @@
+**/bin/
+**/obj/
+!Evaluation.sln
+local/
+private-data/
+*.db
+*.db-shm
+*.db-wal

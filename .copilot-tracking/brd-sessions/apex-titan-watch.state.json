@@ -1,0 +1,42 @@
+{
+  "brdFile": ".copilot-tracking/brd-sessions/apex-titan-watch-brd.md",
+  "brdFileDeviation": "Agent default is docs/project-planning/apex-titan-watch-brd.md; redirected to .copilot-tracking/brd-sessions/ because the facilitator dry run must not modify tracked files (DD-001).",
+  "lastAccessed": "2026-10-13T17:40:00-04:00",
+  "currentPhase": "Define",
+  "disclaimerShownAt": "2026-10-13T17:12:00-04:00",
+  "phaseSkillsLoaded": ["brd-author#discover", "brd-author#define"],
+  "govern": "skipped (facilitator directive: no real approvers)",
+  "questionsAsked": ["initiative-name", "business-problem", "business-driver", "initiative-type", "primary-stakeholders", "decision-owner", "product-signoff", "technical-quality-approvers", "legal-compliance-approver", "community-access-representation", "business-outcomes", "baselines", "measurement-source", "current-state-process", "moscow-timebox", "exclusions", "clipzilla-requirement"],
+  "answeredQuestions": {
+    "initiative-name": "Project Titan Watch - shared incident understanding for regional kaiju response",
+    "business-problem": "Roles cannot quickly build and keep a trustworthy shared understanding of an evolving incident; gaps hide low-signal communities",
+    "business-driver": "Life-safety outcomes; June 2030 steering funding decision",
+    "decision-owner": "Bontle Mokgatle (business sponsor)",
+    "legal-compliance-approver": "UNKNOWN - OQ-002",
+    "baselines": "None measured - recorded TBD (DD-005)",
+    "moscow-timebox": "Increment 1 through June 2030 steering review",
+    "clipzilla-requirement": "Won't-this-time: sponsor preference, no business goal (DD-002)"
+  },
+  "referencesProcessed": [
+    {"file": "docs/pre-prototype/01-call-initial-discovery.md", "status": "analyzed", "keyFindings": "Original request; four first-questions by role; summary not authority; demo vs learning tension"},
+    {"file": "docs/pre-prototype/02-email-chain-fragmented-picture.md", "status": "analyzed", "keyFindings": "8 dispatch tools; silence not all clear; available != deployable; four meanings of current"},
+    {"file": "docs/pre-prototype/03-interview-frans-vasala.md", "status": "analyzed", "keyFindings": "Authority vs source expertise; disagreement must survive summary"},
+    {"file": "docs/pre-prototype/04-interview-sabien-arink.md", "status": "analyzed", "keyFindings": "Assigned = five states; handoff filters lost; no extra screen burden; frozen screen looks composed"},
+    {"file": "docs/pre-prototype/05-interview-amalia-cardoso.md", "status": "analyzed", "keyFindings": "Identity is interpretation; freshness per source; decorative precision; silence meaningless alone"},
+    {"file": "docs/pre-prototype/06-interview-john-falzon.md", "status": "analyzed", "keyFindings": "Commitment is negotiated; field corrections; refusal is part of control loop"},
+    {"file": "docs/pre-prototype/07-interview-ana-jaksic.md", "status": "analyzed", "keyFindings": "Volume != need; no data is not no people; severity to whom"},
+    {"file": "docs/pre-prototype/08-interview-emilia-faria.md", "status": "analyzed", "keyFindings": "Wallboard vs desk; non-color cues; polish hardens hierarchy"},
+    {"file": "docs/pre-prototype/09-interview-bontle-mokgatle.md", "status": "analyzed", "keyFindings": "Funding narrative; Clipzilla sponsor preference; replayed/mocked must be stated"},
+    {"file": "docs/pre-prototype/10-email-chain-prototype-brief.md", "status": "analyzed", "keyFindings": "Prototype boundary (not requirements baseline); no validated threat rule; research gaps retained"},
+    {"file": "docs/pre-prototype/11-call-prototype-kickoff.md", "status": "analyzed", "keyFindings": "Test oracle; happy path vs messy variants; Clipzilla below the line"},
+    {"file": ".copilot-tracking/dt/apex-titan-watch/method-03-synthesis/", "status": "analyzed", "keyFindings": "Themes T1-T11, insights, problem definition, HMW1-11"}
+  ],
+  "counts": {"BG": 7, "FR": 17, "AC": 15, "NFR": 8, "CON": 8, "BR": 7, "DD": 6},
+  "traceability": {"frToAcPct": 88.2, "frToBgPct": 100.0},
+  "discoverGate": "PASSED (conditional: OQ-002 legal/compliance approver unnamed)",
+  "qualityReview": ".copilot-tracking/brd-sessions/apex-titan-watch-quality-review.md",
+  "qualityGate": {"overallStatus": "FAIL", "defineExit": "BLOCKED", "governExit": "NOT_EVALUATED", "findings": {"RISK": 3, "CAUTION": 24, "COVERED": 8, "NOT_APPLICABLE": 2}, "severity": {"CRITICAL": 0, "HIGH": 11, "MEDIUM": 9, "LOW": 7}, "reviewerInvocations": 1},
+  "nextActions": ["Measure baselines (OQ-005)", "Name legal/compliance approver (OQ-002)", "Targeted community and accessibility research", "Address quality findings", "Govern when approvers exist"],
+  "qualityChecks": ["business-goals-defined", "scope-clarified", "fr-to-bg-100", "fr-to-ac-above-threshold"],
+  "userPreferences": {"detail-level": "comprehensive", "question-style": "structured", "mode": "facilitator-dry-run-simulated-answers"}
+}

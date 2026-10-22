@@ -1,0 +1,141 @@
+# LLM-as-judge rubrics. Each criterion is scored 1-5 against its anchors and
+# must be supported by verbatim quotes from the artifact. Criteria cover what
+# deterministic checks cannot: judgment, insight, and wording quality.
+
+dt:
+  artifact: Design Thinking coaching outputs (stakeholder map, research findings, synthesis, HMW questions)
+  criteria:
+    - id: problem_reframing
+      name: Problem reframed beyond the original request
+      question: Does the problem definition move from the requested solution to the underlying need, without naming a solution?
+      anchors:
+        1: Restates the original solution request (for example "build a dashboard") as the problem.
+        3: Names a need but still assumes a specific solution or interface.
+        5: States a solution-neutral need grounded in research, and explains how it differs from the original request.
+    - id: insight_depth
+      name: Insight depth
+      question: Do insights explain why behavior happens and what it implies, rather than restating observations?
+      anchors:
+        1: Insights are restated quotes or topic labels.
+        3: Some insights explain causes; others are summaries.
+        5: Insights consistently connect observation, underlying cause, and consequence for decisions.
+    - id: evidence_grounding
+      name: Evidence grounding
+      question: Are themes and insights traceable to specific research evidence from more than one source where claimed?
+      anchors:
+        1: Claims lack sources or rely on invented evidence.
+        3: Most claims cite sources; robustness of single-source claims is not discussed.
+        5: Every theme cites specific evidence, and single-source or weak themes are flagged as such.
+    - id: stakeholder_breadth
+      name: Breadth of perspectives
+      question: Do the outputs represent all stakeholder groups, including low-power or under-represented voices, and name missing perspectives?
+      anchors:
+        1: Only the most powerful or loudest stakeholders shape the synthesis.
+        3: Most groups appear but under-represented voices are not called out.
+        5: All groups are represented, and gaps in who was heard are explicitly recorded.
+    - id: hmw_quality
+      name: How Might We quality
+      question: Are HMW questions open, solution-neutral, scoped to an insight, and actionable?
+      anchors:
+        1: HMWs name features or are too broad to act on.
+        3: Mostly open, but some prescribe solutions or lack a link to insights.
+        5: Every HMW is open, tied to an insight, and sized for ideation.
+    - id: tension_handling
+      name: Tensions and uncertainty preserved
+      question: Are conflicting stakeholder needs and unknowns preserved instead of resolved prematurely?
+      anchors:
+        1: Conflicts are ignored or silently resolved in favor of one party.
+        3: Conflicts are mentioned but not carried into the problem framing.
+        5: Tensions and unknowns are named, attributed, and carried forward as open questions.
+
+brd:
+  artifact: Business Requirements Document (BRD)
+  criteria:
+    - id: solution_agnostic
+      name: Solution-agnostic business needs
+      question: Do requirements describe business needs and outcomes without prescribing UI, technology, or design?
+      anchors:
+        1: Requirements specify screens, controls, or technology.
+        3: Mostly needs-based with some design leakage.
+        5: Every requirement states a business capability or outcome only.
+    - id: goal_quality
+      name: Business goal quality
+      question: Are business goals specific, measurable, owned, and linked to a KPI with an honest plan for baselines and targets?
+      anchors:
+        1: Goals are vague aspirations without KPIs.
+        3: Goals have KPIs but missing baselines or targets lack a measurement plan.
+        5: Goals are SMART, or missing values carry an explicit, owned plan to measure them.
+    - id: requirement_atomicity
+      name: Atomic, testable requirements
+      question: Does each requirement express one testable behavior with unambiguous wording?
+      anchors:
+        1: Requirements bundle several behaviors and use vague terms.
+        3: Most are testable; several bundle multiple behaviors.
+        5: Requirements are atomic, unambiguous, and directly verifiable.
+    - id: evidence_traceability
+      name: Traceability to evidence
+      question: Can each requirement and rule be traced to stakeholder evidence or a recorded decision?
+      anchors:
+        1: Requirements appear without justification.
+        3: Most cite sources; some are unexplained.
+        5: All requirements trace to evidence or recorded decisions.
+    - id: scope_discipline
+      name: Scope discipline
+      question: Are priorities defensible, exclusions explicit with reasons, and sponsor preferences separated from user needs?
+      anchors:
+        1: Everything is Must; exclusions are not recorded.
+        3: Priorities exist but some are unjustified or exclusions lack rationale.
+        5: Priorities follow evidence; exclusions have reasons and reconsideration points.
+    - id: risk_honesty
+      name: Risks, assumptions, and open questions
+      question: Are assumptions, risks, and open questions specific, owned, and honest about evidence quality?
+      anchors:
+        1: Missing or generic.
+        3: Present but generic or unowned.
+        5: Specific, owned, and tied to evidence strength with mitigations.
+
+prd:
+  artifact: Product Requirements Document (PRD)
+  criteria:
+    - id: user_value
+      name: User value clarity
+      question: Is it clear which users benefit from each capability and why it matters to them?
+      anchors:
+        1: Capabilities are listed without users or value.
+        3: Users are named but value is generic.
+        5: Each capability ties to a named persona and the problem it solves.
+    - id: acceptance_quality
+      name: Acceptance criteria quality
+      question: Are acceptance criteria specific, testable (Given/When/Then or EARS), and cover edge and failure cases?
+      anchors:
+        1: Criteria are vague or missing.
+        3: Testable for happy paths; edge and failure cases are missing.
+        5: Testable, measurable, and include failure, degraded, and edge cases.
+    - id: nfr_quality
+      name: Non-functional requirements
+      question: Are NFRs measurable, categorized, and appropriate to the operating risks (including security and accessibility)?
+      anchors:
+        1: NFRs missing or generic.
+        3: Some measurable NFRs; important categories unaddressed.
+        5: Measurable NFRs cover the relevant categories with verification methods.
+    - id: metrics_quality
+      name: Success metrics
+      question: Do metrics include leading and lagging indicators with baselines, targets, and data sources?
+      anchors:
+        1: No metrics or vanity metrics only.
+        3: Metrics exist but lack baselines, targets, or sources.
+        5: Leading and lagging metrics are fully specified and tied to goals.
+    - id: brd_alignment
+      name: Alignment with business requirements
+      question: Does the PRD carry forward business goals, rules, and exclusions without silently dropping or reversing them?
+      anchors:
+        1: No visible link to business requirements.
+        3: Partially aligned; some goals or exclusions are lost.
+        5: Every product goal traces to business goals, and exclusions are preserved.
+    - id: mvp_discipline
+      name: MVP and release discipline
+      question: Is the first release scoped to the riskiest assumptions with a clear rationale for the cut line?
+      anchors:
+        1: No MVP boundary.
+        3: Boundary exists but is not justified.
+        5: Cut line is justified by learning goals and risk.

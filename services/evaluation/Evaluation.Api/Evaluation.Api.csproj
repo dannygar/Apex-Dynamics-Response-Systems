@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup><TargetFramework>net8.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable></PropertyGroup>
+  <ItemGroup><ProjectReference Include="..\Evaluation.Core\Evaluation.Core.csproj" /><PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.22" /></ItemGroup>
+</Project>

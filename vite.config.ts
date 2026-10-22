@@ -33,6 +33,17 @@ export default defineConfig({
   // refs (e.g. the mascot poses) use `import.meta.env.BASE_URL`.
   base: '/Apex-Dynamics-Response-Systems/',
   plugins: [react(), spaFallback()],
+  build: {
+    rolldownOptions: {
+      input: { main: resolve('index.html'), redirect: resolve('redirect.html') },
+    },
+  },
+  server: {
+    host: true,
+    allowedHosts: true,
+    strictPort: false,
+    proxy: { '/api': 'http://localhost:5080' },
+  },
   test: {
     // The motion model and dispatch knockback are pure functions (node env);
     // component/hook tests opt into jsdom per-file via a `// @vitest-environment

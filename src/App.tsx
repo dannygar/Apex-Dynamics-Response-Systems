@@ -9,7 +9,8 @@
 // definite height for its `h-full` MapLibre container. Side rails carry their
 // own `min-h-0` panels so the roster and feed scroll regions engage.
 
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
+import './evaluation/evaluation.css'
 
 import { DispatchPanel } from './components/DispatchPanel'
 import { LeviathanRoster } from './components/LeviathanRoster'
@@ -50,7 +51,7 @@ function MapLoadingPlaceholder(): React.JSX.Element {
   )
 }
 
-function App(): React.JSX.Element {
+function CommandCenter(): React.JSX.Element {
   const {
     now,
     leviathans,
@@ -73,7 +74,7 @@ function App(): React.JSX.Element {
     leviathans.find((lev) => lev.id === selectedId) ?? null
 
   return (
-    <div className="grid h-screen grid-rows-[auto_minmax(0,1fr)_auto] bg-surface text-text">
+    <div className="grid h-full grid-rows-[auto_minmax(0,1fr)_auto] bg-surface text-text">
       <TopBar
         now={now}
         threatCondition={threatCondition}
@@ -135,6 +136,37 @@ function App(): React.JSX.Element {
       <TriggerAlertBar alertActive={alertActive} onTrigger={triggerAlert} />
     </div>
   )
+}
+
+const EvaluationWorkspace = lazy(() => import('./evaluation/EvaluationWorkspace'))
+
+function App(): React.JSX.Element {
+  const [evaluation, setEvaluation] = useState(() => window.location.hash === '#evaluation')
+  // The command center (map library, tiles, simulation) mounts on first visit only, then stays mounted (hidden)
+  // so its state survives switching tabs. Opening #evaluation directly no longer downloads or runs it.
+  const [commandVisited, setCommandVisited] = useState(() => window.location.hash !== '#evaluation')
+  useEffect(() => {
+    const update = () => {
+      const isEvaluation = window.location.hash === '#evaluation'
+      setEvaluation(isEvaluation)
+      if (!isEvaluation) setCommandVisited(true)
+    }
+    window.addEventListener('hashchange', update)
+    return () => window.removeEventListener('hashchange', update)
+  }, [])
+  useEffect(() => {
+    if (!evaluation) window.dispatchEvent(new Event('resize'))
+  }, [evaluation])
+  return <div className="flex h-screen flex-col">
+    <nav className="workspace-nav" aria-label="Workspaces">
+      <a href="#command" aria-current={!evaluation ? 'page' : undefined}>Command center</a>
+      <a href="#evaluation" aria-current={evaluation ? 'page' : undefined}>Evaluation</a>
+    </nav>
+    {commandVisited && <div className="min-h-0 flex-1" hidden={evaluation}><CommandCenter /></div>}
+    {evaluation && <div className="min-h-0 flex-1 overflow-auto">
+      <Suspense fallback={<p role="status">Loading Evaluation workspace…</p>}><EvaluationWorkspace /></Suspense>
+    </div>}
+  </div>
 }
 
 export default App

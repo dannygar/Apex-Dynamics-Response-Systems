@@ -1,0 +1,29 @@
+# Judge (AI evaluator) settings template for agent-eval.
+#
+# Copy this file to judge.local.yaml (gitignored) and fill in your Azure OpenAI
+# or Azure AI Foundry resource. agent-eval reads judge.local.yaml first, then
+# this file. AZURE_OPENAI_* environment variables override both.
+#
+# No secrets belong here: authentication uses Microsoft Entra ID
+# (DefaultAzureCredential), so run `az login` first. Your account needs a
+# data-plane role such as "Cognitive Services OpenAI User" or "Foundry User".
+#
+# Recommended judge: gpt-6.1-sol (GlobalStandard). It is in the frontier
+# reasoning tier, comes from a different model family than the Claude models
+# that author the artifacts (avoids self-preference bias), and is mid-tier in
+# price. Example deployment:
+#   az cognitiveservices account deployment create -n <resource> -g <resource-group> \
+#     --deployment-name gpt-6.1-sol-judge --model-name gpt-6.1-sol --model-version 2026-09-29 \
+#     --model-format OpenAI --sku-name GlobalStandard --sku-capacity 100
+
+judge:
+  endpoint: https://<your-resource>.cognitiveservices.azure.com/
+  deployment: gpt-6.1-sol-judge
+  api_version: "2025-04-01-preview"
+  # Reasoning models reject custom temperature; leave null.
+  temperature: null
+  # Calls per artifact; the median score is kept and spread >= 2 is flagged.
+  # Use 3 for final team scoring and model comparisons, 1 for quick checks.
+  samples: 1
+  # Characters of artifact text sent per call (~4 chars per token).
+  max_chars: 200000
