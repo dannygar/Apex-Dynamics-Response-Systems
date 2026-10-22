@@ -1,0 +1,27 @@
+# Web image: Evaluation API serving the built SPA from wwwroot. Build context is the repository root.
+FROM node:22-alpine AS spa
+WORKDIR /src
+COPY package.json package-lock.json ./
+RUN npm ci --no-audit --no-fund
+COPY . .
+# Public identifiers only (tenant, SPA client ID, API scope); MSAL needs them at build time.
+ARG VITE_ENTRA_TENANT_ID
+ARG VITE_ENTRA_CLIENT_ID
+ARG VITE_ENTRA_API_SCOPE
+RUN test -n "$VITE_ENTRA_TENANT_ID" && test -n "$VITE_ENTRA_CLIENT_ID" && test -n "$VITE_ENTRA_API_SCOPE" \
+    && npx tsc -b && npx vite build --base=/
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS api
+WORKDIR /src
+COPY services/evaluation/Evaluation.Core/ Evaluation.Core/
+COPY services/evaluation/Evaluation.Api/ Evaluation.Api/
+RUN dotnet publish Evaluation.Api/Evaluation.Api.csproj -c Release -o /out /p:UseAppHost=false
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=api /out ./
+COPY --from=spa /src/dist ./wwwroot
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
+USER $APP_UID
+ENTRYPOINT ["dotnet", "Evaluation.Api.dll"]

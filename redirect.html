@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Evaluation sign-in</title></head>
+  <body>
+    <p id="status" role="status">Completing organization sign-in…</p>
+    <script type="module">
+      import { broadcastResponseToMainFrame } from '@azure/msal-browser/redirect-bridge'
+      broadcastResponseToMainFrame().catch(() => {
+        document.getElementById('status').textContent = 'Sign-in could not complete. Return to the Evaluation workspace and try again.'
+      })
+    </script>
+  </body>
+</html>

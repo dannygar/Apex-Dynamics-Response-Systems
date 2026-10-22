@@ -1,0 +1,43 @@
+[project]
+name = "judge-sidecar"
+version = "0.1.0"
+description = "Loopback HTTP sidecar that scores DT, BRD, and PRD artifacts with agent-eval"
+requires-python = ">=3.11"
+dependencies = [
+    "agent-eval",
+    "azure-ai-agentserver-invocations>=1.2.0",
+]
+
+[project.scripts]
+judge-sidecar = "judge_sidecar.server:main"
+judge-agent = "judge_sidecar.agent:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/judge_sidecar"]
+
+[tool.uv.sources]
+agent-eval = { path = "../../evals/agent-eval", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[[tool.uv.index]]
+url = "https://packagefeedproxy.microsoft.io/pypi/simple/"
+default = true
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]

@@ -1,0 +1,13 @@
+# Worker image: evaluation worker, also used by the migration job (--initialize-database).
+# Build context is the repository root.
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY services/evaluation/Evaluation.Core/ Evaluation.Core/
+COPY services/evaluation/Evaluation.Worker/ Evaluation.Worker/
+RUN dotnet publish Evaluation.Worker/Evaluation.Worker.csproj -c Release -o /out /p:UseAppHost=false
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /out ./
+USER $APP_UID
+ENTRYPOINT ["dotnet", "Evaluation.Worker.dll"]
